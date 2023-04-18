@@ -59,7 +59,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Create new breed"
+            android:text="View breed"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"

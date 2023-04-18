@@ -28,8 +28,9 @@ public class DatabaseControl {
     public ArrayList<BreedModel> getAllBreeds() {
         ArrayList<BreedModel> breedModels = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM breeds", null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
+
+
+        while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
             String name = cursor.getString(1);
             String color = cursor.getString(2);
@@ -37,8 +38,8 @@ public class DatabaseControl {
 
             BreedModel breedModel = new BreedModel(id, name, color, description);
             breedModels.add(breedModel);
-            cursor.moveToNext();
         }
+
         cursor.close();
         return breedModels;
     }

@@ -3,6 +3,7 @@ package nl.danielvdspoel.horsebreeds;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import nl.danielvdspoel.horsebreeds.database.DatabaseControl;
@@ -13,6 +14,7 @@ public class BreedDetailActivity extends AppCompatActivity {
     TextView colorTextView;
     TextView descriptionTextView;
 
+    Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,11 @@ public class BreedDetailActivity extends AppCompatActivity {
         nameTextView = findViewById(R.id.nameText);
         colorTextView = findViewById(R.id.colorText);
         descriptionTextView = findViewById(R.id.descriptionText);
+        backButton = findViewById(R.id.backButton);
 
+        backButton.setOnClickListener(v -> {
+            finish();
+        });
 
         int id = getIntent().getIntExtra("id", 0);
         DatabaseControl databaseControl = new DatabaseControl(this);
